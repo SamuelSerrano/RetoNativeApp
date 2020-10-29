@@ -39,7 +39,7 @@ class EstudianteController extends Controller
     {
         $data = Cursos::select('cursos.nombre', 'cursos.horario')
                 ->join('estudiante_cursos', 'estudiante_cursos.idcurso', '=', 'cursos.id')
-                ->where('estudiante_cursos.idEstudiante',$request->idEstudiante)
+                ->where('estudiante_cursos.idestudiante',$request->idEstudiante)
                 ->get();
 
         return $data;
