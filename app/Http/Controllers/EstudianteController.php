@@ -17,7 +17,7 @@ class EstudianteController extends Controller
     public function AsignarCurso(Request $request)
     {
         //SDSE - Se verifica que no este asignado el curso previamente al estudiante.
-        $cantidadCurso = EstudianteCurso::where('idEstudiante',$request->idEstudiante)
+        $cantidadCurso = EstudianteCurso::where('idestudiante',$request->idEstudiante)
             ->where('idCurso',$request->idCurso)
             ->count();
         
@@ -25,8 +25,8 @@ class EstudianteController extends Controller
         {
             //SDSE - Se Asigna el curso.
             $relcurso = new EstudianteCurso();
-            $relcurso->idEstudiante = $request->idEstudiante;
-            $relcurso->idCurso = $request->idCurso;
+            $relcurso->idestudiante = $request->idEstudiante;
+            $relcurso->idcurso = $request->idCurso;
             $relcurso->save();
             return 1; //Return 1:True / 0:False 
         }
@@ -38,7 +38,7 @@ class EstudianteController extends Controller
     public function ListarCursos(Request $request)
     {
         $data = Cursos::select('cursos.nombre', 'cursos.horario')
-                ->join('estudiante_cursos', 'estudiante_cursos.idCurso', '=', 'cursos.id')
+                ->join('estudiante_cursos', 'estudiante_cursos.idcurso', '=', 'cursos.id')
                 ->where('estudiante_cursos.idEstudiante',$request->idEstudiante)
                 ->get();
 
