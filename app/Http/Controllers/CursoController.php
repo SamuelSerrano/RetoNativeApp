@@ -16,8 +16,8 @@ class CursoController extends Controller
 
     public function GetTopCurso(){
         $data = DB::table('cursos')
-        ->join('estudiante_cursos', 'estudiante_cursos.idCurso', '=', 'cursos.id')
-        ->select('cursos.nombre', DB::raw('count(estudiante_cursos.idCurso) as cantidad'))        
+        ->join('estudiante_cursos', 'estudiante_cursos.idcurso', '=', 'cursos.id')
+        ->select('cursos.nombre', DB::raw('count(estudiante_cursos.idcurso) as cantidad'))        
         ->groupBy('cursos.nombre')
         ->orderBy('cantidad', 'desc')
         ->take(3)

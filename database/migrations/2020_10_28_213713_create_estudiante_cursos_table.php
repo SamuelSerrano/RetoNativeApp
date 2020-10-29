@@ -15,8 +15,8 @@ class CreateEstudianteCursosTable extends Migration
     {
         Schema::create('estudiante_cursos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idEstudiante')->unsigned();
-            $table->integer('idCurso')->unsigned();
+            $table->integer('idestudiante')->unsigned();
+            $table->integer('idcurso')->unsigned();
             $table->timestamps();
         });
     }

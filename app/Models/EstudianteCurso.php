@@ -10,7 +10,7 @@ class EstudianteCurso extends Model
     use HasFactory;
     protected $table = "estudiante_cursos";
     protected $fillable = [
-        'idEstudiante',
-        'idCurso'
+        'idestudiante',
+        'idcurso'
     ];
 }
