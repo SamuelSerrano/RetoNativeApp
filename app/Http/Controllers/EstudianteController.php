@@ -18,7 +18,7 @@ class EstudianteController extends Controller
     {
         //SDSE - Se verifica que no este asignado el curso previamente al estudiante.
         $cantidadCurso = EstudianteCurso::where('idestudiante',$request->idEstudiante)
-            ->where('idCurso',$request->idCurso)
+            ->where('idcurso',$request->idCurso)
             ->count();
         
         if($cantidadCurso == 0)
